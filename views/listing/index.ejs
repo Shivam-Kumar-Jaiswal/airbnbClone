@@ -1,0 +1,56 @@
+<% layout('layout/boilerplate') -%>
+   <div class="filters mt-4">
+      <div class="filter">
+        <i class="fa-solid fa-umbrella-beach"></i>
+        <p><b>Beach</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-person-skiing"></i>
+        <p><b>Skiing</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-brands fa-fort-awesome"></i>
+        <p><b>Castles</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-tree-city"></i>
+        <p><b>Iconic</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-heart"></i>
+        <p><b>Romantic</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-mountain-sun"></i>
+        <p><b>Sunlight</b></p>
+      </div> 
+      <div class="filter">
+        <i class="fa-solid fa-person-swimming"></i>
+        <p><b>Water</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-brands fa-pagelines"></i>
+        <p><b>Green</b></p>
+      </div>
+      <div class="filter">
+        <i class="fa-solid fa-cloud-moon"></i>
+        <p><b>Night</b></p>
+      </div>
+           
+   </div>
+
+   <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-1 mr-0">
+    <%  for(d of data) {%>
+        <a href="/listing/<%=d._id %>" class="listing-link">
+            <div class="card listingCard" >
+                <img src="<%=d.image.url %>" class="card-img-top" alt="..." style="height:20rem">
+                <div class="card-img-overlay"></div>
+                <div class="card-body index-card-body">
+                  <div class="card-text changeWeight-7"><%=d.title %>  </div>
+                  <span class="card-text changeWeight-5">&#8377;<%=d.price.toLocaleString("en-IN")%></span><span>/night</span>
+                </div>
+            </div>
+        </a>
+          <% } %>  
+   </div>
+   

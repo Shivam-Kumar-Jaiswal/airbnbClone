@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid ">
+      <a class="navbar-brand" href="/listing"><i class="fa-solid fa-compass"></i></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link nav-a" href="/listing">Listing</a>
+          <a class="nav-link nav-a" href="/listing/new">CreateList</a>
+        </div>
+        <div class="navbar-nav ms-auto">
+        <%   if(!isUserExist){   %>
+          <a class="nav-link active nav-a" aria-current="page" href="/signup">SignUp</a>
+          <a class="nav-link nav-a" href="/login">Login</a>
+        <% } %>
+        <% if(isUserExist){ %>
+          <a class="nav-link nav-a" href="/logout">Logout</a>
+          <% } %>
+          <div>
+            <i class="fa-solid fa-user"></i>
+            <i class="fa-light fa-bars"></i>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- <div class="nav">
+    <div class="nav-lt">
+        <a href="#"><i class="fa-solid fa-compass"></i></a>
+    </div>
+    <div class="search">
+        <div class="inp">
+            <form action="">
+                <input type="text" >
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="collapse">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
+    <div class="nav-rt">
+        <div>
+            <a href="">Airbnb your home</a>
+        </div>
+        <div class="user">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+</div>    
+<div class="card">
+    <ul style="list-style-type: none;">
+        <li>Sign up</li>
+        <li>Log in</li>
+        <li>Log out</li>
+        <hr>
+        <li>Airbnb your home</li>
+        <li>Help Centre</li>
+    </ul>
+</div> -->

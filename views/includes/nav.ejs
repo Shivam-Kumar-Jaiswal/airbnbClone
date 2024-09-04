@@ -1,0 +1,42 @@
+
+<div class="nav">
+    <div class="nav-lt">
+        <a href="/listing"><i class="fa-solid fa-compass"></i></a>
+    </div>
+    <div class="search">
+        <div class="inp">
+            <form action="/listing/search" method="get">
+                <input type="text" name="search" placeholder="Search by title">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        <div class="collap">
+            <i class="fa-solid fa-bars"></i>
+            
+        </div>
+    </div>
+    <div class="nav-rt">
+        <div class="nav-rt-f">
+            <a class="changeWeight-5" href="/listing/new">Airbnb your home</a>
+        </div>
+        <div class="user">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-user"></i>
+        </div>
+    </div>
+    <div class="crd">
+        <ul style="list-style-type: none;">
+            <%   if(!isUserExist){   %>
+            <a href="/signup"><li>Sign up</li></a>
+            <a href="/login"><li>Log in</li></a>
+            <% } %>
+            <% if(isUserExist){ %>
+            <a href="/logout"><li>Log out</li></a>
+            <% } %>
+            <hr>
+            <a href="/listing/new"><li>Airbnb your home</li></a>
+            <a href="/listing/help"><li>Help Centre</li></a>
+        </ul>
+    </div>
+</div>    
+
