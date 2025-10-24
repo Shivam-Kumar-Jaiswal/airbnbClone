@@ -1,4 +1,5 @@
 let  btn=document.querySelector('.user')
+
 let  crd=document.querySelector('.crd')
 let  collapse=document.querySelector(".collap")
 let bookBtn =document.querySelector('.book-btn')
@@ -16,5 +17,11 @@ collapse.addEventListener('click',function(){
     crd.classList.toggle('active')
 })
 bookBtn.addEventListener('click',function(){
-    window.location.href='http://localhost:8080/listing/book'
+    req.flash('success','New Card Added ..')
+    window.location.href='http://localhost:8080/listing'
+})
+let  signupbtn=document.querySelector('.help-signup')
+signupbtn.addEventListener('click',function(){
+    window.location.href='http://localhost:8080/signup'
+
 })

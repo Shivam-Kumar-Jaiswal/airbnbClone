@@ -4,6 +4,13 @@ if(process.env.NODE_ENV!="production"){
 require('dotenv').config()
 }
 
+
+// const bodyParser = require('body-parser');
+// const Instamojo = require('instamojo-node');
+// const axios = require('axios');
+
+
+
 const express=require("express");
 const app=express();
 const mongoose=require('mongoose');
@@ -17,6 +24,12 @@ const wrapAsync=require('./utils/wrapAsync.js');
 const ExpressError=require('./utils/ExpressError.js')
 
 const methodOverride=require('method-override')
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
+
+
+
 app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({extended:true}))
@@ -109,5 +122,111 @@ app.use((err,req,res,next)=>{
 })
 app.listen(8080,()=>console.log("app is listening on port 8080"))
 
+
 // <% if(isUserExist&&isUserExist._id.equals(data.owner._id)){ %>
 //<% } %> 
+// Import required libraries
+
+
+
+// Instamojo API keys and Sandbox mode
+//Instamojo.setKeys('6fda05cd226b2d00831aad29b406fb57', 'e1b3bb163fd962f6e9f96d5c6c9ae8ce');
+//Instamojo.isSandboxMode(true);  // Set to false for live mode
+
+// const API_KEY = '6fda05cd226b2d00831aad29b406fb57';
+// const AUTH_TOKEN = 'e1b3bb163fd962f6e9f96d5c6c9ae8ce';
+// const BASE_URL =  'https://www.instamojo.com/api/1.1';  // For live transactions
+
+// // Route to handle payment request
+// app.post('/payment',async (req, res) => {
+//     const { name, from, to ,amount } = req.body;
+//     const paymentData = {
+//         purpose: 'HomelyStay Booking',
+//         amount: amount,
+//         buyer_name :name,
+//         from :from,
+//         to :to,
+//         amount:amount,
+        
+//         redirect_url: 'http://localhost:8080/payment-success'
+//     };
+
+//     // const data = new Instamojo.PaymentData();
+//     // data.purpose = "HomelyStay Booking";
+//     // data.amount = 10;  // Dynamic amount based on booking
+//     // data.buyer_name = name;
+//     // data.from = from;
+//     // data.to = to;
+//     // data.redirect_url = "http://localhost:8080/payment-success";
+
+
+// //     // Create Payment Request
+// //     Instamojo.createPayment(data, '6fda05cd226b2d00831aad29b406fb57', 'e1b3bb163fd962f6e9f96d5c6c9ae8ce',(error, response) => {
+// //         if (error) {
+// //             return res.status(400).json({ error });
+// //         } else {
+// //             const paymentUrl = JSON.parse(response).payment_request.longurl;
+// //             res.redirect(paymentUrl);  // Redirect user to payment page
+// //         }
+// //     });
+// // });
+
+// // // Route to handle payment success
+// // app.get('/payment-success', (req, res) => {
+// //     const paymentRequestId = req.query.payment_request_id;
+// //     const paymentId = req.query.payment_id;
+
+// //     Instamojo.getPaymentRequestStatus(paymentRequestId, (error, response) => {
+// //         if (error) {
+// //             return res.status(400).json({ error });
+// //         } else {
+// //             const status = JSON.parse(response).payments[0].status;
+// //             if (status === 'Credit') {
+// //                 res.send('Payment successful! Thank you for booking with HomelyStay.');
+// //             } else {
+// //                 res.send('Payment failed! Please try again.');
+// //             }
+// //         }
+// //     });
+// // });
+// try {
+//     // Create Payment Request
+//     const response = await axios.post(`${BASE_URL}/payment-requests/`, paymentData, {
+//         headers: {
+//             'X-Api-Key': API_KEY,
+//             'X-Auth-Token': AUTH_TOKEN
+//         }
+//     });
+
+//     const paymentUrl = response.data.payment_request.longurl;
+//     res.redirect(paymentUrl);  // Redirect user to Instamojo payment page
+// } catch (error) {
+//     console.error('Error creating payment request:', error.response.data);
+//     res.status(500).json({ error: 'Payment request failed' });
+// }
+// });
+
+// // Route to handle payment success
+// app.get('/payment-success', async (req, res) => {
+// const paymentRequestId = req.query.payment_request_id;
+
+// try {
+//     // Get Payment Status
+//     const response = await axios.get(`${BASE_URL}/payment-requests/${paymentRequestId}/`, {
+//         headers: {
+//             'X-Api-Key': API_KEY,
+//             'X-Auth-Token': AUTH_TOKEN
+//         }
+//     });
+
+//     const paymentStatus = response.data.payment_request.payments[0].status;
+//     if (paymentStatus === 'Credit') {
+//         res.send('Payment successful! Thank you for booking with HomelyStay.');
+//     } else {
+//         res.send('Payment failed! Please try again.');
+//     }
+// } catch (error) {
+//     console.error('Error fetching payment status:', error.response.data);
+//     res.status(500).json({ error: 'Failed to fetch payment status' });
+// }
+// });

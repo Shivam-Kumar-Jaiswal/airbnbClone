@@ -2,29 +2,32 @@
 <script>
     const testSecret='<%= process.env.TEST_SECRET%>'
 </script>
-    <h3 class="offset-2 mt-2 show-head"><%=data.title %></h3>
+    <h3 class="offset-2 mt-4 mb-4 show-head"><%=data.title %></h3>
     <div class="row">
         <div class="col-8 offset-2">
             <div class="card listingCard show-card">
                 <img src="<%=data.image.url %>" alt="location pic" class="card-img-top show-img">
                 <div class="card-body">
-                    <p class="mb-1 changeWeight-5"><%=data.description %></p><br>
+                    <p class="mb-1 mt-2  changeWeight-5"><%=data.description %></p><br>
                     <p class="mb-1 changeWeight-5"> &#8377; <%=data.price.toLocaleString("en-IN")%>&nbsp;&nbsp;(+18%GST)</p>  
-                    <div class="mb-1 changeWeight-5"><%=data.location %>,<%=data.country %></div>   <br> 
+                    <p class="mb-1 changeWeight-5"><%=data.location %>,<%=data.country %></p>   <br> 
                    <% if(isUserExist&&isUserExist._id.equals(data.owner._id)){ %>
-                    <div class="dbl-btn">
+                <div class="dbll">
                         <div class="first-btn">
                             <a href="/listing/<%=data._id %>/edit" class="btn btn-outline-warning col-2">Edit</a>
                         </div>
-                       
-                        <div class="scnd-btn">
+                        <!-- <span>
+                            <a href="/listing/<%=data._id %>/delete" class="btn btn-outline-warning col-2">Delete</a>
+                        </span>
+                        -->
+                     <div class="scnd-btn">
                             <form action="/listing/<%=data._id %>?_method=delete" method="post">
                                 <button class="btn btn-outline-danger">Delete</button>
                             </form>
                         </div>
-                    </div>
-                 <% } else { %>
-                    <div><button class="book-btn">BOOK NOW</button></div>
+                </div>
+                                 <% } else { %> 
+                    <div><a href="/listing/<%=data._id %>/book" class="btn btn-outline-warning col-2">book</a></div>
                  <% } %>
                 </div>
             </div>

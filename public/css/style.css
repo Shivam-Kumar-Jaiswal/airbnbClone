@@ -204,6 +204,11 @@ line-height: 1.75rem;
 .card-body{
     padding:0px;
 }
+.card-body p{
+  font-size:1.25rem;  
+}
+
+
 .card-text{
     font-weight: 400;
 }
@@ -250,18 +255,22 @@ line-height: 1.75rem;
 .show-title{
     font-weight: 900;
 }
-.dbl-btn{
+.dbll{
     display:flex;
     justify-content:flex-start;
 }
 .first-btn{
     width: 5rem;
+    margin-right:5px;
+    display:inline-block;
 }
 .first-btn a{
     width: 100%;
+    display:inline-block; 
 }
 .scnd-btn{
     width:5rem;
+    display:inline-block;
 }
 .nav-a{
     font-size: 1.2rem;
@@ -344,4 +353,132 @@ line-height: 1.75rem;
     .index-card-body{
         font-size: small;
     }
+}
+.help-container{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    align-items: center;
+}.section1{
+    width: 80%;
+}
+.help-article{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+
+.section2{
+    width:80%;
+}
+/* .section1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
+.section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.section3 {
+ width: 50%;
+ display: flex;
+ flex-direction: column;
+ 
+}.section3 form{
+    width: 80%;
+    padding:1rem;
+    border:3px solid #fe424d;
+    border-radius: 2rem;
+}
+.title{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 3rem;
+    font-weight: 700;
+}
+.help-card{
+    display: flex;
+    
+
+}
+.faq{
+    width: 80%;
+    background-color: #f5f5f5;
+    color: #333333;
+    
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    padding:1rem 2rem;
+    margin: 1rem 0rem;  
+}
+.ques{
+    margin-bottom: .5rem;
+    font-size: 1.10rem;
+    font-weight: 600;
+    line-height: 1.8rem;
+    
+}
+.ans{
+    font-weight: 500;
+    max-height: 0px;
+    overflow: hidden;
+}
+.faq.showAns .ans{
+    max-height:20rem;
+    line-height: 2rem;
+}
+#user-problem{
+    width:25rem;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+    border: 2px solid rgb(203, 31, 31);
+    text-decoration: none;
+    resize: none; 
+}.wp,.mail{
+    display: flex;
+    flex-direction: row;
+    
+    /* justify-content: center; */
+}
+.wp,.mail p{
+  font-size: 1.5rem; 
+  font-weight: 600;
+  
+}.fa-envelope{
+    font-size: 2.5rem;
+    color:#dfab25;
+}
+.fa-whatsapp{
+    font-size: 2.6rem;
+    color: green;
+}.fa-phone{
+    font-size: 2.5rem;
+    color: blue;
+}
+.contact-us{
+    display: flex;
+    justify-content: space-between;
+}.help-card{
+    border-radius: 2rem;
+    padding-bottom: 1rem;
+    
+}.sl{
+    display: flex;
+    justify-content:space-between;
+}.sl ol li{
+    line-height: 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}.ssl{
+    font-weight: 700;
+}.pay{
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
 }

@@ -3,6 +3,7 @@ const List=require("../models/listing")
 //const Radar = require('radar-sdk-js');
 
 //import 'radar-sdk-js/dist/radar.css'
+const User=require("../models/user")
 
 module.exports.index=async(req,res)=>{
    let {categ}=req.query;
@@ -37,12 +38,32 @@ module.exports.create=(req,res)=>{
 }
 
 module.exports.help=(req,res)=>{
-    res.render("listing/help.ejs")
+    res.render("listing/newhelp.ejs")
 }
-module.exports.book=(req,res)=>{
-    res.send("shivam")
+module.exports.book=async(req,res,next)=>{
+  const data = req.session.passport.user; 
+//let data = User.find({username:name})
+console.log(data)
+let {id}=req.params;
+ let data2=await List.findById(id)
+ //let newData ={data, data2}
+ res.render("listing/book.ejs",{data,data2})
 }
+module.exports.payment=(req,res)=>{
+   let data=req.query;
+   const st=new Date(data.from)
+   const t=new Date(data.to)
 
+   const diffTime=Math.abs(t-st)
+   const diff=Math.ceil(diffTime/(1000*60*60*24))
+   console.log(diff)
+   const p=data.price*diff;
+   
+   console.log(p)
+   
+   
+   res.render("listing/payment.ejs",{diff , p })
+}
 module.exports.search=async(req,res)=>{
     let {search}=req.query;
     let data=await List.find({title:{$regex :new RegExp(search,'i') }})
@@ -50,13 +71,13 @@ module.exports.search=async(req,res)=>{
 }
 
 module.exports.add=async(req,res,next)=>{
-    let addr;
-     try{
-      addr=Radar.forwardGeocode({ query: '841 broadway, new york, ny' })
-     }catch(er){
-        console.log(er);
-        res.send(er);
-     }
+    // let addr;
+    //  try{
+    //   addr=Radar.forwardGeocode({ query: '841 broadway, new york, ny' })
+    //  }catch(er){
+    //     console.log(er);
+    //     res.send(er);
+    //  }
     //   .then((result) => {
 //     const { addresses } = result;
 //     // do something with addresses
@@ -64,7 +85,7 @@ module.exports.add=async(req,res,next)=>{
 //   .catch((err) => {
 //     // handle error
 //   });
-console.log(addr)
+// console.log(addr)
     let url=req.file.path;
     let filename=req.file.filename;
     let list1=new List(req.body.listing)
