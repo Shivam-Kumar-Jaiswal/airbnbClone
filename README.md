@@ -1,5 +1,5 @@
 # TITLE : Homelystay :A seamless airbnb clone
- an exciting web development project that aims to replicate the functionality and aesthetics of the renowned Airbnb platform. The platform includes key features such as secure user authentication , property listing management , a dynamic search and filter system , booking functionality, and a review system for user to leave rating and feedback. Designed with a responsive interface to ensure a seamless experience across devices.
+ An exciting web development project that aims to replicate the functionality and aesthetics of the renowned Airbnb platform. The platform includes key features such as secure user authentication , property listing management , a dynamic search and filter system , booking functionality, and a review system for user to leave rating and feedback. Designed with a responsive interface to ensure a seamless experience across devices.
 
 # Technology used : HTML, CSS, JAVASCRIPT, BOOTSTRAP, MONGODB, EXPRESS.JS, NODE.JS
 
